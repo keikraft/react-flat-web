@@ -10,6 +10,7 @@ module.exports = {
     env: {
       NODE_ENV: '"development"'
     },
+    devServerPort: 8080,
     cssSourceMap: true,
     extractStyles: true,
     autoOpenBrowser: true,
