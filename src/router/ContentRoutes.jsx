@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Route, Switch} from 'react-router-dom';
 
-import RoutesEnum from './routes.enum';
+import RoutesEnum from 'router/routes.enum';
 
-import Installation from '../components/content/installation/Installation';
-import Badges from '../components/content/badges/Badges';
-import Buttons from '../components/content/buttons/Buttons';
-import Colors from '../components/content/colors/Colors';
-import Inputs from '../components/content/inputs/Inputs';
-import Selectors from '../components/content/selectors/Selectors';
-import Toaster from '../components/content/toaster/Toaster';
+import Installation from 'components/content/installation/Installation';
+import Badges from 'components/content/badges/Badges';
+import Buttons from 'components/content/buttons/Buttons';
+import Colors from 'components/content/colors/Colors';
+import Inputs from 'components/content/inputs/Inputs';
+import Selectors from 'components/content/selectors/Selectors';
+import Toaster from 'components/content/toaster/Toaster';
 
 const ContentRoutesPropTypes = {
   theme: PropTypes.string

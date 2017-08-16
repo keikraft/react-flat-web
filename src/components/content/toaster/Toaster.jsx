@@ -3,14 +3,13 @@ import './pageStyles.scss';
 import React from 'react';
 import Immutable from 'immutable';
 
-import XToaster from '../../../../../components/toaster/XToaster';
-import XButton from '../../../../../components/button/XButton';
-import XInput from '../../../../../components/input/XInput';
-import XSlider from '../../../../../components/slider/XSlider';
-import {XRadioGroup, XRadioButton} from '../../../../../components/radio/XRadio';
+import Toaster from 'react-flat/Toaster';
+import Button from 'react-flat/Button';
+import Input from 'react-flat/Input';
+import Slider from 'react-flat/Slider';
+import {RadioGroup, RadioButton} from 'react-flat/Radio';
 
-
-class Toaster extends React.Component {
+class ToasterDemo extends React.Component {
   constructor(props) {
     super(props);
 
@@ -60,7 +59,7 @@ class Toaster extends React.Component {
   }
 
   handleSecSliderInputOnChange(toastTime) {
-    const seconds = parseInt(toastTime);
+    const seconds = parseInt(toastTime, 10);
     this.setState({toastTime: seconds});
   }
 
@@ -92,43 +91,43 @@ class Toaster extends React.Component {
         <div className="toaster-config">
           <div className="config-column">
             <div className="config-header">POSITION</div>
-            <XRadioGroup name="toastPosition" value={this.state.toastPosition} onChange={this.handleToastPositionButtonChange}>
-              <XRadioButton label="Top" value="top" checked />
-              <XRadioButton label="Bottom" value="bottom" />
-            </XRadioGroup>
+            <RadioGroup name="toastPosition" value={this.state.toastPosition} onChange={this.handleToastPositionButtonChange}>
+              <RadioButton checked label="Top" value="top" />
+              <RadioButton label="Bottom" value="bottom" />
+            </RadioGroup>
           </div>
           <div className="config-column">
             <div className="config-header">SIDE</div>
-            <XRadioGroup name="toastSide" value={this.state.toastSide} onChange={this.handleToastSideButtonChange}>
-              <XRadioButton label="Left" value="left" />
-              <XRadioButton label="Center" value="center" />
-              <XRadioButton label="Right" value="right" checked />
-            </XRadioGroup>
+            <RadioGroup name="toastSide" value={this.state.toastSide} onChange={this.handleToastSideButtonChange}>
+              <RadioButton label="Left" value="left" />
+              <RadioButton label="Center" value="center" />
+              <RadioButton checked label="Right" value="right" />
+            </RadioGroup>
           </div>
           <div className="config-column">
             <div className="config-header">TYPE</div>
-            <XRadioGroup name="toastType" value={this.state.toastType} onChange={this.handleToastTypeButtonChange}>
-              <XRadioButton label="Info" value="info" theme="blue" checked />
-              <XRadioButton label="Success" value="success" theme="green" />
-              <XRadioButton label="Warning" value="warning" theme="yellow" />
-              <XRadioButton label="Error" value="error" theme="red" />
-            </XRadioGroup>
+            <RadioGroup name="toastType" value={this.state.toastType} onChange={this.handleToastTypeButtonChange}>
+              <RadioButton checked label="Info" value="info" theme="blue" />
+              <RadioButton label="Success" value="success" theme="green" />
+              <RadioButton label="Warning" value="warning" theme="yellow" />
+              <RadioButton label="Error" value="error" theme="red" />
+            </RadioGroup>
           </div>
         </div>
         <div className="toaster-form">
-          <XSlider min={0} max={10} step={1} onChange={this.handleSecSliderInputOnChange} />
-          <XInput type="text" placeholder="Toast Message" theme="orange" icon="message" value={this.state.toastMessage} onChange={this.handleMessageInputOnChange} error={this.state.toastMessageError} />
-          <XButton text="Create Toast" onMouseUp={this.handleCreateToastButtonMouseUp} raised />
+          <Slider min={0} max={10} step={1} onChange={this.handleSecSliderInputOnChange} />
+          <Input type="text" placeholder="Toast Message" theme="orange" icon="message" value={this.state.toastMessage} error={this.state.toastMessageError} onChange={this.handleMessageInputOnChange} />
+          <Button raised text="Create Toast" onMouseUp={this.handleCreateToastButtonMouseUp} />
         </div>
-        <XToaster top left className="topOverride" toasts={this.state.toasts.getIn(['top', 'left']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'top', 'left')} />
-        <XToaster top center className="topOverride" toasts={this.state.toasts.getIn(['top', 'center']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'top', 'center')} />
-        <XToaster top right className="topOverride" toasts={this.state.toasts.getIn(['top', 'right']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'top', 'right')} />
-        <XToaster bottom left toasts={this.state.toasts.getIn(['bottom', 'left']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'bottom', 'left')} />
-        <XToaster bottom center toasts={this.state.toasts.getIn(['bottom', 'center']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'bottom', 'center')} />
-        <XToaster bottom right toasts={this.state.toasts.getIn(['bottom', 'right']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'bottom', 'right')} />
+        <Toaster top left className="topOverride" toasts={this.state.toasts.getIn(['top', 'left']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'top', 'left')} />
+        <Toaster top center className="topOverride" toasts={this.state.toasts.getIn(['top', 'center']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'top', 'center')} />
+        <Toaster top right className="topOverride" toasts={this.state.toasts.getIn(['top', 'right']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'top', 'right')} />
+        <Toaster bottom left toasts={this.state.toasts.getIn(['bottom', 'left']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'bottom', 'left')} />
+        <Toaster bottom center toasts={this.state.toasts.getIn(['bottom', 'center']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'bottom', 'center')} />
+        <Toaster bottom right toasts={this.state.toasts.getIn(['bottom', 'right']).toJS()} onRemoveToast={this.handleRemoveToast.bind(this, 'bottom', 'right')} />
       </div>
     );
   }
 }
 
-export default Toaster;
+export default ToasterDemo;

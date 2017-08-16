@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import classnames from 'classnames';
 
-import XSelect from '../../../../../components/select/XSelect';
-import XIcon from '../../../../../components/icon/XIcon';
-import AppLogo from '../../content/app-logo/AppLogo';
+import XSelect from 'react-flat/Select';
+import XIcon from 'react-flat/Icon';
+import AppLogo from 'components/content/app-logo/AppLogo';
 
-import RoutesEnum from '../../../router/routes.enum';
+import RoutesEnum from 'router/routes.enum';
 
 const NavbarPropTypes = {
   theme: PropTypes.string,

@@ -17,5 +17,5 @@ const renderApp = () => {
 renderApp();
 
 if (module.hot) {
-  module.hot.accept('./src/App', renderApp);
+  module.hot.accept('./components/App', renderApp);
 }

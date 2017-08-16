@@ -1,6 +1,6 @@
-import './layout/index.scss';
-import './layout/fonts/index.scss';
-import './layout/icons/_material-icons.scss';
+import 'src/layout/index.scss';
+import 'src/layout/fonts/index.scss';
+import 'src/layout/icons/_material-icons.scss';
 
 import React from 'react';
 import {Route} from 'react-router-dom';
@@ -10,7 +10,6 @@ import Sidebar from 'components/layout/sidebar/Sidebar';
 import Home from 'components/content/home/Home';
 import ContentRoutes from 'router/ContentRoutes';
 import RoutesEnum from 'router/routes.enum';
-
 
 class App extends React.Component {
   state = {

@@ -35,6 +35,7 @@ const webpackDevConfig = {
       resolve('node_modules')
     ],
     alias: {
+      src: resolve('src'),
       components: resolve('src/components'),
       router: resolve('src/router')
     }

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import classnames from 'classnames';
 
-import RoutesEnum from '../../../router/routes.enum';
+import RoutesEnum from 'router/routes.enum';
 
 const SidebarPropTypes = {
   theme: PropTypes.string,

@@ -3,7 +3,7 @@ import './pageStyles.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import XBadge from '../../../../../components/badge/XBadge';
+import Badge from 'react-flat/Badge';
 
 const BadgesPropTypes = {
   theme: PropTypes.string,
@@ -19,36 +19,36 @@ const Badges = ({theme}) => {
     <div>
       <h2>Small Badges</h2>
       <div className="flex-row">
-        <XBadge small text="Default" />
-        <XBadge small text="Themed" theme={theme} />
-        <XBadge small text="Icon" icon="code" theme="blue" />
-        <XBadge small iconRight text="Right" icon="bug_report" theme="green" />
-        <XBadge small icon="accessibility" theme="black" />
-        <XBadge small text="Github" icon={<GithubIcon />} theme="purple" />
+        <Badge small text="Default" />
+        <Badge small text="Themed" theme={theme} />
+        <Badge small text="Icon" icon="code" theme="blue" />
+        <Badge small iconRight text="Right" icon="bug_report" theme="green" />
+        <Badge small icon="accessibility" theme="black" />
+        <Badge small text="Github" icon={<GithubIcon />} theme="purple" />
       </div>
       <h2>Large Badges</h2>
       <div className="flex-row">
-        <XBadge text="Default" />
-        <XBadge text="Themed" theme={theme} />
-        <XBadge text="Icon" icon="code" theme="blue" />
-        <XBadge iconRight text="Right" icon="bug_report" theme="green" />
-        <XBadge icon="accessibility" theme="black" />
-        <XBadge text="Github" icon={<GithubIcon />} theme="purple" />
+        <Badge text="Default" />
+        <Badge text="Themed" theme={theme} />
+        <Badge text="Icon" icon="code" theme="blue" />
+        <Badge iconRight text="Right" icon="bug_report" theme="green" />
+        <Badge icon="accessibility" theme="black" />
+        <Badge text="Github" icon={<GithubIcon />} theme="purple" />
       </div>
       <h2>Inverse Badges</h2>
       <div className="flex-row">
-        <XBadge inverse text="Default" />
-        <XBadge inverse small text="Default" />
-        <XBadge inverse text="Themed" theme={theme} />
-        <XBadge inverse small text="Themed" theme={theme} />
-        <XBadge inverse text="Icon" icon="code" theme="blue" />
-        <XBadge inverse small text="Icon" icon="code" theme="blue" />
-        <XBadge inverse iconRight text="Right" icon="bug_report" theme="green" />
-        <XBadge inverse iconRight small text="Right" icon="bug_report" theme="green" />
-        <XBadge inverse icon="accessibility" theme="black" />
-        <XBadge inverse small icon="accessibility" theme="black" />
-        <XBadge inverse text="Github" icon={<GithubIcon />} theme="purple" />
-        <XBadge inverse small text="Github" icon={<GithubIcon />} theme="purple" />
+        <Badge inverse text="Default" />
+        <Badge inverse small text="Default" />
+        <Badge inverse text="Themed" theme={theme} />
+        <Badge inverse small text="Themed" theme={theme} />
+        <Badge inverse text="Icon" icon="code" theme="blue" />
+        <Badge inverse small text="Icon" icon="code" theme="blue" />
+        <Badge inverse iconRight text="Right" icon="bug_report" theme="green" />
+        <Badge inverse iconRight small text="Right" icon="bug_report" theme="green" />
+        <Badge inverse icon="accessibility" theme="black" />
+        <Badge inverse small icon="accessibility" theme="black" />
+        <Badge inverse text="Github" icon={<GithubIcon />} theme="purple" />
+        <Badge inverse small text="Github" icon={<GithubIcon />} theme="purple" />
       </div>
     </div>
   );
