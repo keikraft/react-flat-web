@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import XButton from '../../../../../components/button/XButton';
+import Button from 'react-flat/Button';
 import AppLogo from 'components/content/app-logo/AppLogo';
 
 import RoutesEnum from 'router/routes.enum';
@@ -43,7 +43,7 @@ class Home extends React.Component {
           <p>Components crafted with and for <b>React</b> and implemented with<br />kind of Material FLAT Design.</p>
         </div>
         <div className="home-content">
-          <XButton raised text="Explore" theme={theme} onClick={this.handleExploreClick} />
+          <Button raised text="Explore" theme={theme} onClick={this.handleExploreClick} />
         </div>
       </div>
     );

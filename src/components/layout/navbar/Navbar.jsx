@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import classnames from 'classnames';
 
-import XSelect from '../../../../../components/select/XSelect';
-import XIcon from '../../../../../components/icon/XIcon';
-import AppLogo from '../../content/app-logo/AppLogo';
+import Select from 'react-flat/Select';
+import Icon from 'react-flat/Icon';
+import AppLogo from 'components/content/app-logo/AppLogo';
 
-import RoutesEnum from '../../../router/routes.enum';
+import RoutesEnum from 'router/routes.enum';
 
 const NavbarPropTypes = {
   theme: PropTypes.string,
@@ -42,11 +42,11 @@ function Navbar({themeColors, theme, onToggleSidebar, onThemeSelect}) {
       <nav>
         <ul>
           <li className="theme-select">
-            <XSelect single data={themeData} value={theme} theme={theme} onSelect={handleThemeSelect} />
+            <Select single data={themeData} value={theme} theme={theme} onSelect={handleThemeSelect} />
           </li>
           <li>
             <a href="https://github.com/k3ira">
-              <XIcon value={GithubIcon} />
+              <Icon value={GithubIcon} />
             </a>
           </li>
         </ul>

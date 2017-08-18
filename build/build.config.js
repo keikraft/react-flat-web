@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   build: {
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../build'),
     assetsSubDirectory: 'public',
     assetsPublicPath: '/',
   },
@@ -17,8 +17,9 @@ module.exports = {
     stats: {
       assets: false,
       cached: false,
-      chunkModules: false,
       children: false,
+      chunks: true,
+      chunkModules: false,
       modules: false,
       source: false,
       colors: true

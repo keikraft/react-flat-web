@@ -1,6 +1,6 @@
-import './layout/index.scss';
-import './layout/fonts/index.scss';
-import './layout/icons/_material-icons.scss';
+import 'src/layout/index.scss';
+import 'src/layout/fonts/index.scss';
+import 'src/layout/icons/_material-icons.scss';
 
 import React from 'react';
 import {Route} from 'react-router-dom';
@@ -8,9 +8,7 @@ import {Route} from 'react-router-dom';
 import Navbar from 'components/layout/navbar/Navbar';
 import Sidebar from 'components/layout/sidebar/Sidebar';
 import Home from 'components/content/home/Home';
-import ContentRoutes from 'router/ContentRoutes';
 import RoutesEnum from 'router/routes.enum';
-
 
 class App extends React.Component {
   state = {
@@ -50,7 +48,7 @@ class App extends React.Component {
           <Sidebar theme={theme} collapsed={sidebarCollapsed} />
           <div className="app-content">
             <Route key="home" path={RoutesEnum.home} render={this.renderHome} />
-            <ContentRoutes theme={theme} />
+            {/*<ContentRoutes theme={theme} />*/}
           </div>
         </div>
       </div>

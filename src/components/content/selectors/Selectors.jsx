@@ -3,9 +3,9 @@ import './pageStyles.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import XCheck from '../../../../../components/checkbox/XCheck';
-import XSwitch from '../../../../../components/switch/XSwitch';
-import {XRadioGroup, XRadioButton} from '../../../../../components/radio/XRadio';
+import Check from 'react-flat/Checkbox';
+import Switch from 'react-flat/Switch';
+import {RadioButton, RadioGroup} from 'react-flat/Radio';
 
 const SelectorsPropTypes = {
   theme: PropTypes.string,
@@ -32,24 +32,24 @@ class Selectors extends React.Component {
     return (
       <div>
         <h2 className="row">CheckBox</h2>
-        <div className="row"><XCheck label="Default" /></div>
-        <div className="row"><XCheck checked label="Checked" /></div>
-        <div className="row"><XCheck checked disabled label="Disabled" /></div>
-        <div className="row"><XCheck label="Themed" theme={this.props.theme} /></div>
+        <div className="row"><Check label="Default" /></div>
+        <div className="row"><Check checked label="Checked" /></div>
+        <div className="row"><Check checked disabled label="Disabled" /></div>
+        <div className="row"><Check label="Themed" theme={this.props.theme} /></div>
         <h2 className="row">Radio Button</h2>
         <div className="row">
-          <XRadioGroup name="playtest" value={this.state.radioValue} onChange={this.handleRadioButtonChange}>
-            <XRadioButton label="12 Monkeys" value="monkeys12" />
-            <XRadioButton checked label="Fight Club" value="fightClub" />
-            <XRadioButton disabled label="Die Hard" value="dieHard" />
-            <XRadioButton label="Trainspotting" value="trainspotting" theme={this.props.theme} />
-          </XRadioGroup>
+          <RadioGroup name="playtest" value={this.state.radioValue} onChange={this.handleRadioButtonChange}>
+            <RadioButton label="12 Monkeys" value="monkeys12" />
+            <RadioButton checked label="Fight Club" value="fightClub" />
+            <RadioButton disabled label="Die Hard" value="dieHard" />
+            <RadioButton label="Trainspotting" value="trainspotting" theme={this.props.theme} />
+          </RadioGroup>
         </div>
         <h2 className="row">Switch</h2>
-        <div className="row"><XSwitch label="Default" /></div>
-        <div className="row"><XSwitch checked label="Checked" /></div>
-        <div className="row"><XSwitch disabled label="Disabled" /></div>
-        <div className="row"><XSwitch label="Themed" theme={this.props.theme} /></div>
+        <div className="row"><Switch label="Default" /></div>
+        <div className="row"><Switch checked label="Checked" /></div>
+        <div className="row"><Switch disabled label="Disabled" /></div>
+        <div className="row"><Switch label="Themed" theme={this.props.theme} /></div>
       </div>
     );
   }

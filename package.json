@@ -16,11 +16,12 @@
     "node": ">=6.5.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.1.2",
-    "prop-types": "^15.5.10",
-    "classnames": "^2.2.5"
+    "react-flat": "file:react-flat-0.3.0.tgz",
+    "react-router-dom": "^4.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

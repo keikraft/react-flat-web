@@ -22,8 +22,8 @@ const webpackDevConfig = {
     resolve('src/index.jsx')
   ],
   output: {
-    path: resolve('src/build'),
     filename: 'flat-web.[hash:5].js',
+    path: config.build.assetsRoot,
     publicPath: config.build.assetsPublicPath,
     devtoolModuleFilenameTemplate: '[resource-path]'
   },
@@ -35,6 +35,7 @@ const webpackDevConfig = {
       resolve('node_modules')
     ],
     alias: {
+      src: resolve('src'),
       components: resolve('src/components'),
       router: resolve('src/router')
     }
