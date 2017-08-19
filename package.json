@@ -20,7 +20,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-flat": "file:react-flat-0.3.0.tgz",
+    "react-flat": "^0.3.0",
     "react-router-dom": "^4.1.2"
   },
   "devDependencies": {

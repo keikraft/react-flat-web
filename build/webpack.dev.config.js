@@ -27,7 +27,7 @@ const webpackDevConfig = {
     publicPath: config.build.assetsPublicPath,
     devtoolModuleFilenameTemplate: '[resource-path]'
   },
-  devtool: config.dev.cssSourceMap ? '#cheap-source-map' : false,
+  devtool: config.dev.cssSourceMap ? '#cheap-module-source-map' : false,
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [

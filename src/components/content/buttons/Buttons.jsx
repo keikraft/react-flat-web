@@ -7,7 +7,7 @@ import Button, {buttonFactory} from 'react-flat/Button';
 import Icon from 'react-flat/Icon';
 
 const ButtonsPropTypes = {
-  theme: PropTypes.string,
+  theme: PropTypes.string
 };
 const ButtonsDefaultProps = {
   theme: 'red'

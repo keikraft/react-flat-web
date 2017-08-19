@@ -7,7 +7,7 @@ import Toaster from 'react-flat/Toaster';
 import Button from 'react-flat/Button';
 import Input from 'react-flat/Input';
 import Slider from 'react-flat/Slider';
-import {RadioGroup, RadioButton} from 'react-flat/Radio';
+import {RadioButton, RadioGroup} from 'react-flat/Radio';
 
 class ToasterDemo extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class ToasterDemo extends React.Component {
       toastPosition: 'top',
       toastSide: 'right',
       toastType: 'info',
-      toastMessage: '',
+      toastMessage: 'I\'m a Toast!',
       toastMessageError: null,
       toastTime: 0,
       toasts: fromJSOrdered({

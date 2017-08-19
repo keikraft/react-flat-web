@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import Check from 'react-flat/Checkbox';
 import Switch from 'react-flat/Switch';
-import {RadioGroup, RadioButton} from 'react-flat/Radio';
+import {RadioButton, RadioGroup} from 'react-flat/Radio';
 
 const SelectorsPropTypes = {
   theme: PropTypes.string,
@@ -47,9 +47,8 @@ class Selectors extends React.Component {
         </div>
         <h2 className="row">Switch</h2>
         <div className="row"><Switch label="Default" /></div>
-        <div className="row"><Switch checked label="Checked" /></div>
+        <div className="row"><Switch checked label="Themed Checked" theme={this.props.theme} /></div>
         <div className="row"><Switch disabled label="Disabled" /></div>
-        <div className="row"><Switch label="Themed" theme={this.props.theme} /></div>
       </div>
     );
   }
