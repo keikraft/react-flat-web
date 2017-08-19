@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   build: {
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../build'),
     assetsSubDirectory: 'public',
     assetsPublicPath: '/',
   },
@@ -10,14 +10,16 @@ module.exports = {
     env: {
       NODE_ENV: '"development"'
     },
+    devServerPort: 8080,
     cssSourceMap: true,
     extractStyles: true,
     autoOpenBrowser: true,
     stats: {
       assets: false,
       cached: false,
-      chunkModules: false,
       children: false,
+      chunks: true,
+      chunkModules: false,
       modules: false,
       source: false,
       colors: true

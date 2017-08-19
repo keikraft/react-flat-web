@@ -13,7 +13,7 @@ const server = new WebpackDevServer(compiler, {
   stats: config.dev.stats,
 });
 
-server.listen(8080, '0.0.0.0', () => {
-  console.log('Listening on port 8080');
-  open('http://localhost:8080');
+server.listen(config.dev.devServerPort, '0.0.0.0', () => {
+  console.log(`Listening on port ${config.dev.devServerPort}`);
+  open(`http://localhost:${config.dev.devServerPort}`);
 });
