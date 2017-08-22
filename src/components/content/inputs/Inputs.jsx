@@ -6,11 +6,9 @@ import PropTypes from 'prop-types';
 import Input from 'react-flat/Input';
 
 const InputsPropTypes = {
-  theme: PropTypes.string,
+  theme: PropTypes.string.isRequired
 };
-const InputsDefaultProps = {
-  theme: 'red'
-};
+
 class Inputs extends React.Component {
   constructor(props) {
     super(props);
@@ -51,6 +49,5 @@ class Inputs extends React.Component {
 }
 
 Inputs.propTypes = InputsPropTypes;
-Inputs.defaultProps = InputsDefaultProps;
 
 export default Inputs;

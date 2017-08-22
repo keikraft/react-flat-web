@@ -4,6 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import classnames from 'classnames';
+import {themes} from 'react-flat/Colors';
 
 import RoutesEnum from 'router/routes.enum';
 
@@ -12,26 +13,43 @@ const SidebarPropTypes = {
   collapsed: PropTypes.bool
 };
 const SidebarDefaultProps = {
-  theme: 'red',
+  theme: themes.red,
   collapsed: false
 };
+
+const {getStarted, badges, buttons, colors, inputs, selectors, toasters} = RoutesEnum;
+const {installation} = getStarted.subMenus;
+const {checkboxes, radios, switches} = selectors.subMenus;
 
 function Sidebar({theme, collapsed}) {
   const currentPage = window.location.hash.replace('#', '');
 
   return (
-    <nav className={classnames('app-sidebar', theme, {collapsed})}>
+    <div className={classnames('app-sidebar', theme, {collapsed})}>
       <div className="app-sidebar-content">
         <ul>
-          <li><Link to={RoutesEnum.badges} className={classnames({active: RoutesEnum.badges === currentPage})}>Badges</Link></li>
-          <li><Link to={RoutesEnum.buttons} className={classnames({active: RoutesEnum.buttons === currentPage})}>Buttons</Link></li>
-          <li><Link to={RoutesEnum.colors} className={classnames({active: RoutesEnum.colors === currentPage})}>Colors</Link></li>
-          <li><Link to={RoutesEnum.inputs} className={classnames({active: RoutesEnum.inputs === currentPage})}>Inputs</Link></li>
-          <li><Link to={RoutesEnum.selectors} className={classnames({active: RoutesEnum.selectors === currentPage})}>Selectors</Link></li>
-          <li><Link to={RoutesEnum.toaster} className={classnames({active: RoutesEnum.toaster === currentPage})}>Toaster</Link></li>
+          <li className="menu-group">
+            <span>{getStarted.title}</span>
+            <ul className="second-level">
+              <li className={classnames({active: installation.route === currentPage})}><Link to={installation.route}>{installation.title}</Link></li>
+            </ul>
+          </li>
+          <li className={classnames({active: badges.route === currentPage})}><Link to={badges.route}>{badges.title}</Link></li>
+          <li className={classnames({active: buttons.route === currentPage})}><Link to={buttons.route}>{buttons.title}</Link></li>
+          <li className={classnames({active: colors.route === currentPage})}><Link to={colors.route}>{colors.title}</Link></li>
+          <li className={classnames({active: inputs.route === currentPage})}><Link to={inputs.route}>{inputs.title}</Link></li>
+          <li className="menu-group">
+            <span>{selectors.title}</span>
+            <ul className="second-level">
+              <li className={classnames({active: checkboxes.route === currentPage})}><Link to={checkboxes.route}>{checkboxes.title}</Link></li>
+              <li className={classnames({active: radios.route === currentPage})}><Link to={radios.route}>{radios.title}</Link></li>
+              <li className={classnames({active: switches.route === currentPage})}><Link to={switches.route}>{switches.title}</Link></li>
+            </ul>
+          </li>
+          <li className={classnames({active: toasters.route === currentPage})}><Link to={toasters.route}>Toaster</Link></li>
         </ul>
       </div>
-    </nav>
+    </div>
   );
 }
 

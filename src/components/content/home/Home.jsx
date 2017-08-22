@@ -11,46 +11,28 @@ import RoutesEnum from 'router/routes.enum';
 
 const HomePropTypes = {
   history: PropTypes.object.isRequired,
-  theme: PropTypes.string,
-  onMount: PropTypes.func.isRequired,
-  onUnmount: PropTypes.func.isRequired
-};
-const HomeDefaultProps = {
-  theme: 'red'
+  theme: PropTypes.string.isRequired
 };
 
-class Home extends React.Component {
-  componentWillMount() {
-    this.props.onMount();
-  }
-
-  componentWillUnmount() {
-    this.props.onUnmount();
-  }
-
-  handleExploreClick = () => {
-    this.props.history.push(RoutesEnum.installation);
+function Home({history, theme}) {
+  const handleExploreClick = () => {
+    history.push(RoutesEnum.getStarted.subMenus.installation.route);
   };
 
-  render() {
-    const {theme} = this.props;
-
-    return (
-      <div className={classnames('app-home', theme)}>
-        <div className="home-header">
-          <AppLogo big color={theme} />
-          <h2>React Flat</h2>
-          <p>Components crafted with and for <b>React</b> and implemented with<br />kind of Material FLAT Design.</p>
-        </div>
-        <div className="home-content">
-          <Button raised text="Explore" theme={theme} onClick={this.handleExploreClick} />
-        </div>
+  return (
+    <div className={classnames('app-home', theme)}>
+      <div className="home-header">
+        <AppLogo big theme={theme} />
+        <h2>React Flat</h2>
+        <p>Components crafted with and for <b>React</b> and implemented with<br />kind of Material FLAT Design.</p>
       </div>
-    );
-  }
+      <div className="home-content">
+        <Button raised text="Explore" theme={theme} onClick={handleExploreClick} />
+      </div>
+    </div>
+  );
 }
 
 Home.propTypes = HomePropTypes;
-Home.defaultProps = HomeDefaultProps;
 
 export default Home;

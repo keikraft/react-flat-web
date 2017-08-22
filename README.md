@@ -1,3 +1,3 @@
-#React Flat
+# <a href=''><img src='http://i.imgur.com/zHxviLb.png'></a>
 
-Flat UI Components made with and for React
+React Flat library Web App

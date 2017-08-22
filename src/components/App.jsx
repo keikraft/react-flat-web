@@ -3,20 +3,35 @@ import 'src/layout/fonts/index.scss';
 import 'src/layout/icons/_material-icons.scss';
 
 import React from 'react';
-import {Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import {themes} from 'react-flat/Colors';
 
 import Navbar from 'components/layout/navbar/Navbar';
 import Sidebar from 'components/layout/sidebar/Sidebar';
-import Home from 'components/content/home/Home';
 import ContentRoutes from 'router/ContentRoutes';
-import RoutesEnum from 'router/routes.enum';
+
+const themeColors = Object.keys(themes);
+
+const AppPropTypes = {
+  location: PropTypes.object.isRequired
+};
 
 class App extends React.Component {
-  state = {
-    theme: 'red',
-    sidebarCollapsed: true
-  };
-  themeColors = ['red', 'pink', 'purple', 'blue', 'aqua', 'green', 'yellow', 'orange', 'brown', 'grey'];
+  constructor(props) {
+    super(props);
+
+    const {pathname} = props.location;
+    this.state = {
+      theme: themes.red,
+      sidebarCollapsed: pathname === '/' || pathname === '/home'
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const {pathname} = nextProps.location;
+    const sidebarCollapsed = pathname === '/' || pathname === '/home';
+    this.setState({sidebarCollapsed});
+  }
 
   handleToggleSidebar = () => {
     const sidebarCollapsed = !this.state.sidebarCollapsed;
@@ -27,16 +42,8 @@ class App extends React.Component {
     this.setState({theme});
   };
 
-  handleHomeMount = () => {
-    this.setState({sidebarCollapsed: true});
-  }
-
-  handleHomeUnmount = () => {
-    this.setState({sidebarCollapsed: false});
-  }
-
-  renderHome = (props) => {
-    return <Home {...props} theme={this.state.theme} onMount={this.handleHomeMount} onUnmount={this.handleHomeUnmount} />;
+  handleRouteRender = (route) => {
+    this.setState({sidebarCollapsed: route === '/home'});
   };
 
   render() {
@@ -44,17 +51,18 @@ class App extends React.Component {
 
     return (
       <div className="app-main">
-        <Navbar themeColors={this.themeColors} theme={theme} onToggleSidebar={this.handleToggleSidebar} onThemeSelect={this.handleThemeSelect} />
+        <Navbar themeColors={themeColors} theme={theme} onToggleSidebar={this.handleToggleSidebar} onThemeSelect={this.handleThemeSelect} />
         <div className="app-content-wrapper">
           <Sidebar theme={theme} collapsed={sidebarCollapsed} />
           <div className="app-content">
-            <Route key="home" path={RoutesEnum.home} render={this.renderHome} />
-            <ContentRoutes theme={theme} />
+            <ContentRoutes theme={theme} onRouteRender={this.handleRouteRender} />
           </div>
         </div>
       </div>
     );
   }
 }
+
+App.propTypes = AppPropTypes;
 
 export default App;

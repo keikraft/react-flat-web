@@ -5,22 +5,21 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const AppLogoPropTypes = {
-  color: PropTypes.string,
+  theme: PropTypes.string.isRequired,
   small: PropTypes.bool,
   big: PropTypes.bool
 };
 
 const AppLogoDefaultProps = {
-  color: 'red',
   small: false,
   big: false
 };
 
-function AppLogo({color, small, big}) {
+function AppLogo({theme, small, big}) {
   const size = small ? 'small' : big ? 'big' : '';
 
   return (
-    <div className={classnames('app-logo', color, size)}>
+    <div className={classnames('app-logo', theme, size)}>
       <span className="rect-left-up" />
       <span className="rect-left-down" />
       <span className="rect-right-up" />

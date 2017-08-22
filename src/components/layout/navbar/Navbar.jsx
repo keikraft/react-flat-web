@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import classnames from 'classnames';
 
+import {themes} from 'react-flat/Colors';
 import Select from 'react-flat/Select';
 import Icon from 'react-flat/Icon';
 import AppLogo from 'components/content/app-logo/AppLogo';
@@ -18,7 +19,7 @@ const NavbarPropTypes = {
   onThemeSelect: PropTypes.func.isRequired
 };
 const NavbarDefaultProps = {
-  theme: 'red',
+  theme: themes.red,
   themeColors: []
 };
 
@@ -35,9 +36,9 @@ function Navbar({themeColors, theme, onToggleSidebar, onThemeSelect}) {
     <div className={classnames('app-navbar', theme)}>
       <div className="title">
         <button onClick={onToggleSidebar}>
-          <AppLogo small color={theme} />
+          <AppLogo small theme={theme} />
         </button>
-        <Link to={RoutesEnum.home}>react-flat</Link>
+        <Link to={RoutesEnum.home.route}>react-flat</Link>
       </div>
       <nav>
         <ul>

@@ -1,26 +1,29 @@
 @import "~react-flat/colors";
 
+$small_size: 36px;
+$medium_size: 128px;
+$big_size: 256px;
 $square_size: calc(100% / 2);
 
 .app-logo {
   position: relative;
-  width: 128px;
-  height: 128px;
-  min-width: 128px;
-  min-height: 128px;
+  width: $medium_size;
+  height: $medium_size;
+  min-width: $medium_size;
+  min-height: $medium_size;
 
   &.small {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;
-    min-height: 48px;
+    width: $small_size;
+    height: $small_size;
+    min-width: $small_size;
+    min-height: $small_size;
   }
 
   &.big {
-    width: 256px;
-    height: 256px;
-    min-width: 256px;
-    min-height: 256px;
+    width: $big_size;
+    height: $big_size;
+    min-width: $big_size;
+    min-height: $big_size;
   }
 
   & .rect-left-up {

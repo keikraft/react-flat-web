@@ -1,14 +1,16 @@
 @import "~react-flat/colors";
 
 .app-sidebar {
-  position: relative;
-  width: 200px;
+  position: absolute;
+  left: 0;
+  min-width: 200px;
   height: 100%;
+  background-color: white;
+  transition: left .3s ease-in-out;
   z-index: 100;
-  transition: width .3s ease-in-out;
 
   &.collapsed {
-    width: 0;
+    left: -200px;
   }
 
   &::after {
@@ -29,7 +31,8 @@
       margin: 0;
       overflow: hidden;
 
-      & li a {
+      & li a,
+      & li.menu-group span {
         display: block;
         position: relative;
         padding: 15px;
@@ -37,6 +40,22 @@
         font-weight: 500;
         color: get-color('grey', 300);
         transition: background-color .3s ease;
+      }
+    }
+
+    & ul.second-level {
+      & li {
+        padding-left: 25px;
+
+        & a {
+          display: block;
+          position: relative;
+          padding: 10px;
+          text-decoration: none;
+          font-weight: 300;
+          color: get-color('grey', 300);
+          transition: background-color .3s ease;
+        }
       }
     }
   }
@@ -51,9 +70,8 @@
       }
 
       & .app-sidebar-content {
-        & ul li a {
+        & ul li:not(.menu-group) {
           border-bottom: 1px solid get-color($color-name, 100, .3);
-
           &:hover,
           &.active {
             background-color: get-color($color-name, 100, .3);

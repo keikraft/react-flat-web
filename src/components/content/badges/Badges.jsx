@@ -6,10 +6,7 @@ import PropTypes from 'prop-types';
 import Badge from 'react-flat/Badge';
 
 const BadgesPropTypes = {
-  theme: PropTypes.string,
-};
-const BadgesDefaultProps = {
-  theme: 'red'
+  theme: PropTypes.string.isRequired
 };
 
 const Badges = ({theme}) => {
@@ -55,6 +52,5 @@ const Badges = ({theme}) => {
 };
 
 Badges.propTypes = BadgesPropTypes;
-Badges.defaultProps = BadgesDefaultProps;
 
 export default Badges;
