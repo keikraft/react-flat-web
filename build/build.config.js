@@ -1,14 +1,18 @@
 const path = require('path');
 
+function resolve(dir) {
+  return path.join(__dirname, '..', dir);
+}
+
 module.exports = {
-  build: {
-    assetsRoot: path.resolve(__dirname, '../build'),
-    assetsSubDirectory: 'public',
-    assetsPublicPath: '/',
-  },
   dev: {
     env: {
       NODE_ENV: '"development"'
+    },
+    build: {
+      assetsRoot: resolve('build'),
+      assetsSubDirectory: 'public',
+      assetsPublicPath: '/',
     },
     devServerPort: 8080,
     cssSourceMap: true,
@@ -28,6 +32,14 @@ module.exports = {
   dist: {
     env: {
       NODE_ENV: '"production"'
+    },
+    build: {
+      assetsRoot: resolve('dist'),
+      assetsSubDirectory: 'dist',
+      assetsPublicPath: '/',
+    },
+    publish: {
+      src: resolve('dist')
     },
     cssSourceMap: true,
     extractStyles: true,

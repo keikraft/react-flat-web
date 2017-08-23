@@ -35,10 +35,10 @@
       & li.menu-group span {
         display: block;
         position: relative;
-        padding: 15px;
+        padding: 10px;
         text-decoration: none;
         font-weight: 500;
-        color: get-color('grey', 300);
+        color: get-color('grey', 230);
         transition: background-color .3s ease;
       }
     }
@@ -46,14 +46,15 @@
     & ul.second-level {
       & li {
         padding-left: 25px;
+        border-bottom: none;
 
         & a {
           display: block;
           position: relative;
           padding: 10px;
           text-decoration: none;
-          font-weight: 300;
-          color: get-color('grey', 300);
+          font-weight: 400;
+          color: get-color('grey', 220);
           transition: background-color .3s ease;
         }
       }
@@ -71,11 +72,13 @@
 
       & .app-sidebar-content {
         & ul li:not(.menu-group) {
-          border-bottom: 1px solid get-color($color-name, 100, .3);
           &:hover,
           &.active {
             background-color: get-color($color-name, 100, .3);
           }
+        }
+        & ul:not(.second-level) li {
+          border-bottom: 1px solid get-color($color-name, 100, .3);
         }
       }
     }

@@ -17,14 +17,14 @@ function getCssScssLoaders(sourceMap) {
 const webpackDevConfig = {
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
+    'webpack-dev-server/client?http://localhost:8080',
     resolve('src/index.jsx')
   ],
   output: {
     filename: 'flat-web.[hash:5].js',
-    path: config.build.assetsRoot,
-    publicPath: config.build.assetsPublicPath,
+    path: config.dev.build.assetsRoot,
+    publicPath: config.dev.build.assetsPublicPath,
     devtoolModuleFilenameTemplate: '[resource-path]'
   },
   devtool: config.dev.cssSourceMap ? '#cheap-module-source-map' : false,
