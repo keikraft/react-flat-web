@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import AppLogo from 'components/content/app-logo/AppLogo';
 import Button from 'react-flat/Button';
 
-import RoutesEnum from 'router/routes.enum';
+import Routes from 'router/routes';
 
 const HomePropTypes = {
   history: PropTypes.object.isRequired,
@@ -16,7 +16,7 @@ const HomePropTypes = {
 
 function Home({history, theme}) {
   const handleExploreClick = () => {
-    history.push(RoutesEnum.getStarted.subMenus.installation.route);
+    history.push(Routes.getStarted.subMenus.installation.route);
   };
 
   return (

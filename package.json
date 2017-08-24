@@ -12,6 +12,7 @@
     "dev": "node ./build/dev-server.js",
     "build": "node ./build/build.js",
     "publish": "npm run clean & npm run build & node ./build/publish.js",
+    "deploy": "npm run clean & npm run build & gh-pages -d dist",
     "start": "npm run clean & npm run build & npm run dev"
   },
   "engines": {
@@ -55,6 +56,7 @@
     "open": "0.0.5",
     "optimize-css-assets-webpack-plugin": "^3.1.1",
     "react-hot-loader": "^3.0.0-beta.7",
+    "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",

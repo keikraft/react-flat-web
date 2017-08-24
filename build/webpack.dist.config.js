@@ -9,16 +9,11 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
-function getCssScssLoaders(sourceMap) {
-  return ['css', 'sass'].map((ext) => {
-    return {loader: `${ext}-loader`, options: {sourceMap}};
-  });
-}
-
+const sourceMap = config.dist.cssSourceMap;
 const webpackDistConfig = {
   bail: true,
   entry: resolve('src/index.jsx'),
-  devtool: config.dist.cssSourceMap ? '#source-map' : false,
+  devtool: sourceMap ? '#source-map' : false,
   output: {
     path: config.dist.build.assetsRoot,
     filename: 'scripts/[name].[chunkhash].js',
@@ -47,23 +42,34 @@ const webpackDistConfig = {
       {
         test: /\.(css|scss)$/,
         use: config.dev.extractStyles
-          ? ExtractTextPlugin.extract({fallback: 'style-loader', use: getCssScssLoaders(config.dev.cssSourceMap)})
-          : [{loader: 'style-loader'}].concat(getCssScssLoaders(config.dev.cssSourceMap))
+          ? ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+              {loader: 'css-loader', options: {sourceMap}},
+              {loader: 'sass-loader', options: {sourceMap}}
+            ],
+            publicPath: '../'
+          })
+          : [
+            {loader: 'style-loader'},
+            {loader: 'css-loader', options: {sourceMap}},
+            {loader: 'sass-loader', options: {sourceMap}}
+          ]
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
-        query: {
+        options: {
           limit: 10000,
           name: 'fonts/[name].[hash:5].[ext]'
         }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        query: {
+        loader: 'file-loader',
+        options: {
           limit: 10000,
-          name: 'images/[name].[hash:7].[ext]'
+          name: 'images/[name].[hash:5].[ext]'
         }
       }
     ]

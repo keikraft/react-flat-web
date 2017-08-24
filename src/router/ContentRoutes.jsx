@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
-import RoutesEnum from 'router/routes.enum';
+import Routes from './routes';
 
 import Home from 'components/content/home/Home';
 import Installation from 'components/content/get-started/installation/Installation';
@@ -19,7 +19,7 @@ const ContentRoutesPropTypes = {
   theme: PropTypes.string.isRequired
 };
 
-const {home, getStarted, badges, buttons, colors, inputs, selectors, toasters} = RoutesEnum;
+const {home, getStarted, badges, buttons, colors, inputs, selectors, toasters} = Routes;
 const {installation} = getStarted.subMenus;
 const {checkboxes, radios, switches} = selectors.subMenus;
 

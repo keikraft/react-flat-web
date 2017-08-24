@@ -10,7 +10,7 @@ import Select from 'react-flat/Select';
 import Icon from 'react-flat/Icon';
 import AppLogo from 'components/content/app-logo/AppLogo';
 
-import RoutesEnum from 'router/routes.enum';
+import Routes from 'router/routes';
 
 const NavbarPropTypes = {
   theme: PropTypes.string,
@@ -38,7 +38,7 @@ function Navbar({themeColors, theme, onToggleSidebar, onThemeSelect}) {
         <button onClick={onToggleSidebar}>
           <AppLogo small theme={theme} />
         </button>
-        <Link to={RoutesEnum.home.route}>react-flat</Link>
+        <Link to={Routes.home.route}>react-flat</Link>
       </div>
       <nav>
         <ul>

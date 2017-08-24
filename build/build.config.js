@@ -36,7 +36,7 @@ module.exports = {
     build: {
       assetsRoot: resolve('dist'),
       assetsSubDirectory: 'dist',
-      assetsPublicPath: '/',
+      assetsPublicPath: '',
     },
     publish: {
       src: resolve('dist')

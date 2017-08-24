@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import classnames from 'classnames';
 import {themes} from 'react-flat/Colors';
+import Wave from 'react-flat/Wave';
 
-import RoutesEnum from 'router/routes.enum';
+import Routes from 'router/routes';
 
 const SidebarPropTypes = {
   theme: PropTypes.string,
@@ -17,36 +18,33 @@ const SidebarDefaultProps = {
   collapsed: false
 };
 
-const {getStarted, badges, buttons, colors, inputs, selectors, toasters} = RoutesEnum;
-const {installation} = getStarted.subMenus;
-const {checkboxes, radios, switches} = selectors.subMenus;
-
 function Sidebar({theme, collapsed}) {
   const currentPage = window.location.hash.replace('#', '');
+
+  const renderEntry = ({title, route}) => {
+    return (
+      <li key={route} className={classnames({active: route === currentPage})}>
+        <Link to={route}>{title}</Link>
+      </li>
+    );
+  };
+
+  const renderMenuGroup = ({title, subMenus}) => {
+    return (
+      <li className="menu-group">
+        <span>{title}</span>
+        <ul className="second-level">
+          {Object.keys(subMenus).map((key) => (renderEntry(subMenus[key])))}
+        </ul>
+      </li>
+    );
+  };
 
   return (
     <div className={classnames('app-sidebar', theme, {collapsed})}>
       <div className="app-sidebar-content">
         <ul>
-          <li className="menu-group">
-            <span>{getStarted.title}</span>
-            <ul className="second-level">
-              <li className={classnames({active: installation.route === currentPage})}><Link to={installation.route}>{installation.title}</Link></li>
-            </ul>
-          </li>
-          <li className={classnames({active: badges.route === currentPage})}><Link to={badges.route}>{badges.title}</Link></li>
-          <li className={classnames({active: buttons.route === currentPage})}><Link to={buttons.route}>{buttons.title}</Link></li>
-          <li className={classnames({active: colors.route === currentPage})}><Link to={colors.route}>{colors.title}</Link></li>
-          <li className={classnames({active: inputs.route === currentPage})}><Link to={inputs.route}>{inputs.title}</Link></li>
-          <li className="menu-group">
-            <span>{selectors.title}</span>
-            <ul className="second-level">
-              <li className={classnames({active: checkboxes.route === currentPage})}><Link to={checkboxes.route}>{checkboxes.title}</Link></li>
-              <li className={classnames({active: radios.route === currentPage})}><Link to={radios.route}>{radios.title}</Link></li>
-              <li className={classnames({active: switches.route === currentPage})}><Link to={switches.route}>{switches.title}</Link></li>
-            </ul>
-          </li>
-          <li className={classnames({active: toasters.route === currentPage})}><Link to={toasters.route}>Toaster</Link></li>
+          {Object.keys(Routes).map((key) => (Routes[key].subMenus ? renderMenuGroup(Routes[key]) : renderEntry(Routes[key])))}
         </ul>
       </div>
     </div>
